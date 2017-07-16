@@ -44,6 +44,7 @@ public class slownik
 				temporary=temporary+wejscie.charAt(i);
 			}
 		}
+		System.out.println(baza[0].GetIlosc()+" "+baza[0].GetString());
 		return baza;
 	}
 }

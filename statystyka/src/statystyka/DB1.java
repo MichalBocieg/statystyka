@@ -2,7 +2,7 @@ package statystyka;
 
 public class DB1
 {
-	private String slowo=" ";
+	private String slowo=" ";//bez inicjalizacji nullpointer
 	private int ilosc=0;
 	public void SetString(String slowo)
 	{
