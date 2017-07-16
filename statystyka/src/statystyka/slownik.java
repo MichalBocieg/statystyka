@@ -4,10 +4,9 @@ public class slownik
 {
 	static public DB1[] baza;
 	
-	public static void wszystko()
+	public static DB1[] wszystko(String wejscie) //a tutaj dziala bez statica, na potrzeby testu jednak nie dziala
 	{
-		String wejscie = "fsfaskjf sdf sda sdf d rtaretqert rgfgfdgre gsadfsd f";
-		int rozmiar=0;
+		int rozmiar=1;
 		String temporary = null;
 		for(int i=0; i<wejscie.length();i++)
 		{
@@ -22,18 +21,20 @@ public class slownik
 		
 		for(int i=0; i<wejscie.length();i++)
 		{
+	
 			if(wejscie.charAt(i)==' ')
 					{
 						for(int k=0;k<rozmiar;k++)
 						{
-							if(baza[k].slowo.equals(temporary))
+							baza[k] = new DB1();
+							if(baza[k].GetString().equals(temporary))	//nullpointerexception pomimo inicjalizacji
 							{
-								baza[k].ilosc++;
+								baza[k].SetIlosc(baza[k].GetIlosc()+1);
 							}
 							else
 							{
-								baza[k].slowo=temporary;
-								baza[k].ilosc=1;
+								baza[k].SetString(temporary);
+								baza[k].SetIlosc(1);
 							}
 						}
 						temporary=null;
@@ -43,10 +44,6 @@ public class slownik
 				temporary=temporary+wejscie.charAt(i);
 			}
 		}
-	}
-	public static void main(String[] args)
-	{
-			// test
-			wszystko();
+		return baza;
 	}
 }
